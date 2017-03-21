@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/textura"
+    android:scrollbars = "vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:weightSum="15"
+    android:fillViewport="true">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:auto="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical|center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textEquacao"
+        android:layout_width="wrap_content"
+        android:layout_weight="2"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Especifique a equação:" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Coeficiente a = " />
+
+        <EditText
+            android:id="@+id/coefA"
+            android:layout_width="100dp"
+            android:inputType="numberSigned"
+            android:background="@color/cinza"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_height="wrap_content" >
+        </EditText>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Coeficiente b = " />
+
+        <EditText
+            android:id="@+id/coefB"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:background="@color/cinza"
+            android:inputType="numberSigned"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" >
+        </EditText>
+
+            </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Coeficiente c = " />
+
+        <EditText
+            android:id="@+id/coefC"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:background="@color/cinza"
+            android:inputType="numberSigned"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" >
+        </EditText>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnResolver"
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="Resolver"
+        android:onClick="resolve"/>
+
+    <io.github.kexanie.library.MathView
+    android:layout_weight="8"
+    android:id="@+id/resposta"
+    android:background="@color/cinza"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    auto:engine="MathJax"
+    >
+</io.github.kexanie.library.MathView>
+
+    <Button
+        android:id="@+id/btnGrafico"
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="Mostrar gráfico"
+        android:onClick="mostraGrafico"/>
+
+</LinearLayout>
+
+    </ScrollView>
