@@ -19,6 +19,12 @@
         android:text="Gráfico da função"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <TextView
+    android:id="@+id/vertice"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceMedium" />
+
     <com.jjoe64.graphview.GraphView
         android:background="@color/preto"
         android:layout_width="wrap_content"

@@ -12,6 +12,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.LegendRenderer;
@@ -61,17 +62,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void mostraGrafico(View view){
-        int a = Integer.parseInt(((EditText) findViewById(R.id.coefA)).getText().toString());
-        int b = Integer.parseInt(((EditText) findViewById(R.id.coefB)).getText().toString());
-        int c = Integer.parseInt(((EditText) findViewById(R.id.coefC)).getText().toString());
+        double a = Double.parseDouble(((EditText) findViewById(R.id.coefA)).getText().toString());
+        double b = Double.parseDouble(((EditText) findViewById(R.id.coefB)).getText().toString());
+        double c = Double.parseDouble(((EditText) findViewById(R.id.coefC)).getText().toString());
 
         Intent it = new Intent(MainActivity.this,Activity_grafico.class);
 
         Bundle bundle = new Bundle();
 
-        bundle.putInt("a", a);
-        bundle.putInt("b",b);
-        bundle.putInt("c",c);
+        bundle.putDouble("a", a);
+        bundle.putDouble("b", b);
+        bundle.putDouble("c", c);
 
         it.putExtras(bundle);
 
@@ -83,9 +84,9 @@ public class MainActivity extends AppCompatActivity {
         MathView resp = ((MathView) findViewById(R.id.resposta));
 
         try {
-            int a = Integer.parseInt(((EditText) findViewById(R.id.coefA)).getText().toString());
-            int b = Integer.parseInt(((EditText) findViewById(R.id.coefB)).getText().toString());
-            int c = Integer.parseInt(((EditText) findViewById(R.id.coefC)).getText().toString());
+            double a = Double.parseDouble(((EditText) findViewById(R.id.coefA)).getText().toString());
+            double b = Double.parseDouble(((EditText) findViewById(R.id.coefB)).getText().toString());
+            double c = Double.parseDouble(((EditText) findViewById(R.id.coefC)).getText().toString());
 
             Equacao2Grau e2 = new Equacao2Grau(a, b, c);
             e2.resolve();
@@ -93,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
             resp.setText(e2.resposta);
 
         }catch(Exception e){
-            resp.setText("Pelo menos um dos valores digitados não é um número inteiro! Revise suas entradas!");
+            resp.setText("Pelo menos um dos valores digitados é um número inválido! Revise suas entradas!");
         }
 
     }

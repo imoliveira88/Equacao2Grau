@@ -23,32 +23,41 @@ public class Activity_grafico extends Activity {
 
         Bundle bundle = intent.getExtras();
 
-        int a = bundle.getInt("a");
-        int b = bundle.getInt("b");
-        int c = bundle.getInt("c");
+        double a = bundle.getDouble("a");
+        double b = bundle.getDouble("b");
+        double c = bundle.getDouble("c");
+
+        double xv = (-b/(2*a));
+        double yv = -(b*b-4*a*c)/(4*a);
+
+        String vertice = "Coordenada x do vértice da parábola: " + xv + "\n";
+        vertice += "Coordenada y do vértice da parábola: " + yv + "\n";
+
+        TextView texto = (TextView) findViewById(R.id.vertice);
+        texto.setText(vertice);
 
         drawChart(a, b, c);
     }
 
-    private void drawChart(int a, int b, int c){
+    private void drawChart(double a, double b, double c){
         GraphView graph = (GraphView) findViewById(R.id.graph);
         Equacao2Grau e2 = new Equacao2Grau(a,b,c);
         Double x1,x2;
         e2.resolve();
         if(e2.x1 != null){
-            x1 = e2.x2;
-            x2 = e2.x1;
+            x1 = e2.x1;
+            x2 = e2.x2;
         }else{
-            x1 = -3.0;
-            x2 = 3.0;
+            x1 = -e2.b/(2*e2.a)-1;
+            x2 = -e2.b/(2*e2.a)+2;
         }
 
-        Double passo = (Math.abs(x2-x1)+2)/100;
+        Double passo = (Math.abs(x2-x1))/100;
 
         Double[] serieX = new Double[100];
         Double[] serieY = new Double[100];
 
-        serieX[0] = x2 - 1;
+        serieX[0] = x1 - 1;
         serieY[0] = e2.valor(serieX[0]);
 
         for(int i=1; i<100; i++){
